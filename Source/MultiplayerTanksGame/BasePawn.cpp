@@ -29,4 +29,9 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 	TurretMesh->SetWorldRotation(InterpolatedRotation);
 }
 
+void ABasePawn::Server_RotateTurret_Implementation(FVector Target)
+{
+	RotateTurret(Target);
+}
+
 

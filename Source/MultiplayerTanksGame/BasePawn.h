@@ -27,4 +27,7 @@ public:
 	ABasePawn();
 
 	void RotateTurret(FVector LookAtTarget);
+
+	UFUNCTION(Server, Reliable)
+	void Server_RotateTurret(FVector Target);
 };

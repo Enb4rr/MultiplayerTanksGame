@@ -50,6 +50,7 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	float TurnRate = 50.0f;
+
 	
 	// Sets default values for this pawn's properties
 	ATank();
@@ -62,4 +63,10 @@ public:
 
 	void MoveInput(const FInputActionValue& Value);
 	void TurnInput(const FInputActionValue& Value);
+
+	UFUNCTION(Server, Reliable)
+	void Server_Move(float Value);
+
+	UFUNCTION(Server, Reliable)
+	void Server_Turn(float Value);
 };
