@@ -24,4 +24,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	TObjectPtr<UTextBlock> HealthTextBlock;
+
+public:
+
+	UFUNCTION(BlueprintCallable)
+	void OnHealthChanged(float NewHealth, float MaxHealth);
 };
