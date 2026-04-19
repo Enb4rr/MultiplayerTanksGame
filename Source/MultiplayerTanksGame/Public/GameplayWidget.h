@@ -19,6 +19,7 @@ class MULTIPLAYERTANKSGAME_API UGameplayWidget : public UUserWidget
 	
 protected:
 
+	// UI Objects
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	TObjectPtr<UProgressBar> HealthProgressBar;
 

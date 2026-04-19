@@ -2,12 +2,13 @@
 
 
 #include "GameplayHUD.h"
-#include "../UI/GameplayWidget.h"
+#include "../Public/GameplayWidget.h"
 
 void AGameplayHUD::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// Sets GUI at beginning of game
 	if (GameplayWidget)
 	{
 		GameplayWidget->AddToViewport();

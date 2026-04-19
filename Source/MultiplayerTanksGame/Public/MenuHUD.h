@@ -4,24 +4,24 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/HUD.h"
-#include "GameplayHUD.generated.h"
+#include "MenuHUD.generated.h"
 
-class UGameplayWidget;
+class UMenuWidget;
 
 /**
  * 
  */
 UCLASS()
-class MULTIPLAYERTANKSGAME_API AGameplayHUD : public AHUD
+class MULTIPLAYERTANKSGAME_API AMenuHUD : public AHUD
 {
 	GENERATED_BODY()
-
+	
 public:
 
-	// GUI
+	// MainMenu
 	UPROPERTY(EditDefaultsOnly)
-	TObjectPtr<UGameplayWidget> GameplayWidget;
-	
+	TObjectPtr<UMenuWidget> MenuWidget;
+
 protected:
 
 	virtual void BeginPlay() override;
