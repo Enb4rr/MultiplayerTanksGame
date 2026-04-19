@@ -7,6 +7,7 @@
 #include "GameplayHUD.generated.h"
 
 class UGameplayWidget;
+class UGameOverWidget;
 
 /**
  * 
@@ -21,6 +22,19 @@ public:
 	// GUI
 	UPROPERTY(EditDefaultsOnly)
 	TObjectPtr<UGameplayWidget> GameplayWidget;
+
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<UGameOverWidget> WinScreenWidget;
+
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<UGameOverWidget> LoseScreenWidget;
+
+	// Win Lose Functions
+	UFUNCTION(BlueprintCallable)
+	void WinGame();
+
+	UFUNCTION(BlueprintCallable)
+	void LoseGame();
 	
 protected:
 

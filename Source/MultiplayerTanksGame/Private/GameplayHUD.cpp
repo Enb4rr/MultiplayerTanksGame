@@ -3,6 +3,25 @@
 
 #include "GameplayHUD.h"
 #include "../Public/GameplayWidget.h"
+#include "../Public/GameOverWidget.h"
+
+void AGameplayHUD::WinGame()
+{
+	// Shows win game screen
+	if (WinScreenWidget)
+	{
+		WinScreenWidget->AddToViewport();
+	}
+}
+
+void AGameplayHUD::LoseGame()
+{
+	// Shows lose screen
+	if (LoseScreenWidget)
+	{
+		LoseScreenWidget->AddToViewport();
+	}
+}
 
 void AGameplayHUD::BeginPlay()
 {
