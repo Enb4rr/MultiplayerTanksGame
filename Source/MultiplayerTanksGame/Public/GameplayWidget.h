@@ -26,8 +26,15 @@ protected:
 	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
 	TObjectPtr<UTextBlock> HealthTextBlock;
 
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+	TObjectPtr<UTextBlock> AbilityTextBlock;
+
 public:
 
 	UFUNCTION(BlueprintCallable)
 	void OnHealthChanged(float NewHealth, float MaxHealth);
+
+
+	UFUNCTION(BlueprintCallable)
+	void OnAbilityChange(FText AbilityText);
 };
