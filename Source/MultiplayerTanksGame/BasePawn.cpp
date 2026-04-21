@@ -21,12 +21,19 @@ ABasePawn::ABasePawn()
 
 void ABasePawn::RotateTurret(FVector LookAtTarget)
 {
-	FVector VectorToTarget = LookAtTarget - TurretMesh->GetComponentLocation();
-	FRotator LookAtRotation = FRotator(0.0f, VectorToTarget.Rotation().Yaw, 0.0f);
+	if (HasAuthority())
+	{
+		FVector VectorToTarget = LookAtTarget - TurretMesh->GetComponentLocation();
+		FRotator LookAtRotation = FRotator(0.0f, VectorToTarget.Rotation().Yaw, 0.0f);
 
-	FRotator InterpolatedRotation = FMath::RInterpTo(TurretMesh->GetComponentRotation(), LookAtRotation, GetWorld()->GetDeltaSeconds(), 10.0f);
+		FRotator InterpolatedRotation = FMath::RInterpTo(TurretMesh->GetComponentRotation(), LookAtRotation, GetWorld()->GetDeltaSeconds(), 10.0f);
 
-	TurretMesh->SetWorldRotation(InterpolatedRotation);
+		TurretMesh->SetWorldRotation(InterpolatedRotation);
+	}
+	else
+	{
+		Server_RotateTurret(LookAtTarget);
+	}
 }
 
 void ABasePawn::Server_RotateTurret_Implementation(FVector Target)

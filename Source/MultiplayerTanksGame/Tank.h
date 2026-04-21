@@ -45,7 +45,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* TurnAction;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float Speed = 300.0f;
 
 	UPROPERTY(EditAnywhere)

@@ -14,6 +14,9 @@ class MULTIPLAYERTANKSGAME_API AShootingTank : public ATank
 
 public:
 	AShootingTank();
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Damage")
+	float ProjectileDamage = 20.0f;
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
