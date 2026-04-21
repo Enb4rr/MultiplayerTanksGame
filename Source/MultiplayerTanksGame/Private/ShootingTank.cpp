@@ -42,7 +42,8 @@ void AShootingTank::Shoot()
 		SpawnParameters.Instigator = GetInstigator();
 		SpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 
-		GetWorld()->SpawnActor<AShootingProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, SpawnParameters);
+		AShootingProjectile* SpawnedBullet = GetWorld()->SpawnActor<AShootingProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, SpawnParameters);
+		
 	}
 	else
 	{
