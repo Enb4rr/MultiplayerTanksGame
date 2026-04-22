@@ -16,6 +16,7 @@
 
 #include "Tank.generated.h"
 
+
 /**
  * 
  */
@@ -51,7 +52,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	float TurnRate = 50.0f;
 
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Replicated, Category = "Lives")
+	int32 Lives = 3;
+ 
 	// Sets default values for this pawn's properties
 	ATank();
 	
@@ -69,4 +72,6 @@ public:
 
 	UFUNCTION(Server, Reliable)
 	void Server_Turn(float Value);
+ 
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 };

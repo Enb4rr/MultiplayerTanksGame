@@ -4,6 +4,7 @@
 #include "Tank.h"
 #include "InputMappingContext.h"
 #include "Kismet/GameplayStatics.h"
+#include "Net/UnrealNetwork.h"
 
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
@@ -72,6 +73,13 @@ void ATank::TurnInput(const FInputActionValue& Value)
 {
 	const float InputValue = Value.Get<float>();
 	Server_Turn(InputValue);
+}
+
+void ATank::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+ 
+	DOREPLIFETIME(ATank, Lives);
 }
 
 void ATank::Server_Move_Implementation(float Value)

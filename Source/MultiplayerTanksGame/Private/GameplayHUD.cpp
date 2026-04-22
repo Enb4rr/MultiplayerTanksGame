@@ -7,6 +7,11 @@
 
 void AGameplayHUD::WinGame()
 {
+	if (GameplayWidget)
+	{
+		GameplayWidget->RemoveFromParent();
+	}
+	
 	// Shows win game screen
 	if (WinScreenWidget)
 	{
@@ -16,9 +21,16 @@ void AGameplayHUD::WinGame()
 
 void AGameplayHUD::LoseGame()
 {
+	if (GameplayWidget)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Player Lost! game widget"));
+		GameplayWidget->RemoveFromParent();
+	}
 	// Shows lose screen
 	if (LoseScreenWidget)
 	{
+		
+
 		LoseScreenWidget->AddToViewport();
 	}
 }

@@ -27,6 +27,8 @@ void AMultiplayerTankGameMode::PreLogin(const FString& Options, const FString& A
 			("Reason", ErrorMessage),
 			("NumPlayers", GetNumPlayers()));
 	}
+	
+
 }
 
 void AMultiplayerTankGameMode::PostLogin(APlayerController* NewPlayer)
@@ -36,7 +38,6 @@ void AMultiplayerTankGameMode::PostLogin(APlayerController* NewPlayer)
 	UE_LOGFMT(LogNetworkingGameMode, Log, "PostLogin| Player Joined : ID = {PlayerID} | TotalPlayers = {NumPlayers}",
 		("PlayerID", NewPlayer ? NewPlayer->GetPlayerState<APlayerState>()->GetPlayerId() : -1),
 		("NumPlayers", GetNumPlayers()));
-	
 }
 
 void AMultiplayerTankGameMode::RestartPlayer(AController* NewPlayer)
@@ -50,3 +51,4 @@ void AMultiplayerTankGameMode::RestartPlayer(AController* NewPlayer)
 	NewPlayer->StartSpot = nullptr;
 	Super::RestartPlayer(NewPlayer);
 }
+
