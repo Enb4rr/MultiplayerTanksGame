@@ -7,9 +7,9 @@
 
 void AGameplayHUD::WinGame()
 {
-	if (GameplayWidget)
+	if (CurrentGameplayWidget)
 	{
-		GameplayWidget->RemoveFromParent();
+		CurrentGameplayWidget->AddToViewport();
 	}
 	
 	// Shows win game screen
@@ -21,27 +21,35 @@ void AGameplayHUD::WinGame()
 
 void AGameplayHUD::LoseGame()
 {
-	if (GameplayWidget)
+	if (CurrentGameplayWidget)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Lost! game widget"));
-		GameplayWidget->RemoveFromParent();
+		CurrentGameplayWidget->AddToViewport();
 	}
+	
 	// Shows lose screen
 	if (LoseScreenWidget)
 	{
-		
-
 		LoseScreenWidget->AddToViewport();
+	}
+}
+
+void AGameplayHUD::DestroyHealthBar()
+{
+	if (CurrentGameplayWidget)
+	{
+		CurrentGameplayWidget->DestroyHealthBarWidget();
 	}
 }
 
 void AGameplayHUD::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
+	CurrentGameplayWidget = CreateWidget<UGameplayWidget>(GetWorld(), GameplayWidget);
+	
 	// Sets GUI at beginning of game
-	if (GameplayWidget)
+	if (CurrentGameplayWidget)
 	{
-		GameplayWidget->AddToViewport();
+		CurrentGameplayWidget->AddToViewport();
 	}
 }

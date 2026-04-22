@@ -8,6 +8,7 @@
 
 class UGameplayWidget;
 class UGameOverWidget;
+class UUserWidget;
 
 /**
  * 
@@ -21,20 +22,26 @@ public:
 
 	// GUI
 	UPROPERTY(EditDefaultsOnly)
-	TObjectPtr<UGameplayWidget> GameplayWidget;
+	TSubclassOf<UUserWidget> GameplayWidget;
 
 	UPROPERTY(EditDefaultsOnly)
 	TObjectPtr<UGameOverWidget> WinScreenWidget;
 
 	UPROPERTY(EditDefaultsOnly)
 	TObjectPtr<UGameOverWidget> LoseScreenWidget;
-
+	
+	UPROPERTY(BlueprintReadOnly)
+	UGameplayWidget* CurrentGameplayWidget;
+	
 	// Win Lose Functions
 	UFUNCTION(BlueprintCallable)
 	void WinGame();
 
 	UFUNCTION(BlueprintCallable)
 	void LoseGame();
+	
+	UFUNCTION(BlueprintCallable)
+	void DestroyHealthBar();
 	
 protected:
 

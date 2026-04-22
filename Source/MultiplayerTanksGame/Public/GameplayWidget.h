@@ -33,7 +33,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void OnHealthChanged(float NewHealth, float MaxHealth);
-
+	
+	UFUNCTION(BlueprintCallable)
+	void DestroyHealthBarWidget();
 
 	UFUNCTION(BlueprintCallable)
 	void OnAbilityChange(FText AbilityText);

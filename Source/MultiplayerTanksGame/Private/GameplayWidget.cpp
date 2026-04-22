@@ -21,6 +21,23 @@ void UGameplayWidget::OnHealthChanged(float NewHealth, float MaxHealth)
 	}
 }
 
+void UGameplayWidget::DestroyHealthBarWidget()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Destroying Health Bar Widget"));
+	
+	if (HealthProgressBar)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Destroying HealthProgressBar Bar Widget"));
+		HealthProgressBar->RemoveFromParent();
+	}
+	
+	if (HealthTextBlock)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Destroying HealthTextBlock Bar Widget"));
+		HealthTextBlock->RemoveFromParent();
+	}
+}
+
 void UGameplayWidget::OnAbilityChange(FText AbilityText)
 {
 	if (AbilityTextBlock)
